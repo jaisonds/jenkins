@@ -1,5 +1,4 @@
-echo "enter ur age"
-read age
+age=16
 if [ $age -ge 60 ]
 then
 echo "adult"
