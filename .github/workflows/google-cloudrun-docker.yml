@@ -44,9 +44,9 @@
 
 name: Build and Deploy to Cloud Run
 
-on:
-  push:
-    branches: [ "master" ]
+# on:
+#   push:
+#     branches: [ "master" ]
 
 env:
   PROJECT_ID: digisense-lz02-uat-849694 # TODO: update Google Cloud project id
