@@ -51,7 +51,7 @@ on:
 env:
   PROJECT_ID: prj-airindia-poc-01 # TODO: update Google Cloud project id
   GAR_LOCATION: asia-south1  # TODO: update Artifact Registry location
-  SERVICE: cloud-run	 # TODO: update Cloud Run service name
+  SERVICE: cloudrun	 # TODO: update Cloud Run service name
   REGION: asia-south1 # TODO: update Cloud Run service region
 
 jobs:
@@ -99,8 +99,8 @@ jobs:
 
       - name: Build and Push Container
         run: |-
-          docker build -t "asia-south1-docker.pkg.dev/digisense-lz02-uat-849694/cloud-run/test:${{ github.sha }}" ./
-          docker push "asia-south1-docker.pkg.dev/digisense-lz02-uat-849694/cloud-run/test:${{ github.sha }}"
+          docker build -t "asia-south1-docker.pkg.dev/prj-airindia-poc-01/cloud-run-source-deploy/test:${{ github.sha }}" ./
+          docker push "asia-south1-docker.pkg.dev/prj-airindia-poc-01/cloud-run-source-deploy/test:${{ github.sha }}"
 
       # # # END - Docker auth and build
 
@@ -111,7 +111,7 @@ jobs:
           service: ${{ env.SERVICE }}
           region: ${{ env.REGION }}
           # NOTE: If using a pre-built image, update the image name here
-          image: asia-south1-docker.pkg.dev/digisense-lz02-uat-849694/cloud-run/test:${{ github.sha }}
+          image: asia-south1-docker.pkg.dev/prj-airindia-poc-01/cloud-run-source-deploy/test:${{ github.sha }}
 
       # # If required, use the Cloud Run url output in later steps
       - name: Show Output
