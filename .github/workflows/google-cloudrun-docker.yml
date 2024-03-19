@@ -68,27 +68,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # - name: Google Auth
-      #   id: auth
-      #   uses: 'google-github-actions/auth@v2'
-      #   with:
-      #     token_format: 'access_token'
-      #     workload_identity_provider: '//iam.googleapis.com/projects/13579727091/locations/global/workloadIdentityPools/cloudrun/providers/github' # e.g. - projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider
-      #     service_account: 'sql-poc@prj-airindia-poc-01.iam.gserviceaccount.com' # e.g. - my-service-account@my-project.iam.gserviceaccount.com
-
-      - id: auth
-        uses: google-github-actions/auth@v2
+      - name: Google Auth
+        id: auth
+        uses: 'google-github-actions/auth@v2'
         with:
-          token_format: "access_token"
-          create_credentials_file: true
-          activate_credentials_file: true
-          workload_identity_provider: https://iam.googleapis.com/projects/13579727091/locations/global/workloadIdentityPools/github-wif-pool/providers/githubwif
-          service_account: sql-poc@prj-airindia-poc-01.iam.gserviceaccount.com
-          access_token_lifetime: '100s'
-      # - name: Set up Cloud SDK
-      #   uses: google-github-actions/setup-gcloud@v0.3.0
-      # - name: set crdential_file
-      #   run: gcloud auth login --cred-file=${{steps.auth.outputs.credentials_file_path}}
+          token_format: 'access_token'
+          workload_identity_provider: 'https://iam.googleapis.com/projects/13579727091/locations/global/workloadIdentityPools/github-wif-pool/providers/githubwif' # e.g. - projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider
+          service_account: 'sql-poc@prj-airindia-poc-01.iam.gserviceaccount.com' # e.g. - my-service-account@my-project.iam.gserviceaccount.com
+
 
 ######## working yaml################
       # NOTE: Alternative option - authentication via credentials json
