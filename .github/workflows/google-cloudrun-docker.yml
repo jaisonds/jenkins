@@ -73,8 +73,10 @@ jobs:
         uses: 'google-github-actions/auth@v2'
         with:
           token_format: 'access_token'
-          workload_identity_provider: 'https://iam.googleapis.com/projects/13579727091/locations/global/workloadIdentityPools/github-wif-pool/providers/githubwif' # e.g. - projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider
+          workload_identity_provider: 'projects/13579727091/locations/global/workloadIdentityPools/github-wif-pool/providers/githubwif' # e.g. - projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider
           service_account: 'sql-poc@prj-airindia-poc-01.iam.gserviceaccount.com' # e.g. - my-service-account@my-project.iam.gserviceaccount.com
+          access_token_lifetime: '300s'
+
 
 
 ######## working yaml################
