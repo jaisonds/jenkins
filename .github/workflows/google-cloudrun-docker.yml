@@ -40,21 +40,12 @@ jobs:
 
 
 
-######## working yaml################
-      # NOTE: Alternative option - authentication via credentials json
-
-      ### - id: "auth"
-      #   uses: google-github-actions/auth@v1.1.1
-      #   with:
-      #     credentials_json: "${{ secrets.SA }}"
-
       ### Setup gcloud CLI/SDK
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
 
       # BEGIN - Docker auth and build (NOTE: If you already have a container image, these Docker steps can be omitted)
 
-      ###working suhas
       - name: Authorize Docker push
         run: gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev
 
